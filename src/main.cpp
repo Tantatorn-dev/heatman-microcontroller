@@ -1,12 +1,18 @@
 #include <Arduino.h>
-#include <ConnectWifi.h>
+#include "Sensor.h"
 
-void setup() {
-  // put your setup code here, to run once:
+Sensor *sensor = new Sensor();
+
+void setup()
+{
   Serial.begin(9600);
-  connectWifi();
+
+  sensor->testSensor();
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  Serial.print("Temperature is ");
+  Serial.println(sensor->getTemperature());
+  delay(1000);
 }
