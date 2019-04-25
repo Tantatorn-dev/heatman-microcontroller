@@ -14,5 +14,5 @@ void loop()
 {
   Serial.print("Temperature is ");
   Serial.println(sensor->getTemperature());
-  delay(1000);
+  delay(3000);
 }
