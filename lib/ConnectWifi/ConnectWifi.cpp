@@ -1,8 +1,8 @@
 #include "ConnectWifi.h"
 
-void connectWifi(){
+void connectWifi(String ssid,String pass){
 
-  WiFi.begin("CE-ESL","ceeslonly");
+  WiFi.begin(ssid,pass);
   Serial.println("connecting...");
 
   while(WiFi.status() != WL_CONNECTED){

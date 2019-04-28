@@ -1,18 +1,18 @@
 #include <Arduino.h>
 #include "Sensor.h"
+#include "Thermistor.h"
+#include "FirebaseDB.h"
+#include "ConnectWifi.h"
 
 Sensor *sensor = new Sensor();
 
 void setup()
 {
   Serial.begin(9600);
-
-  sensor->testSensor();
+  connectWifi("CE-ESL","ceeslonly");
 }
 
 void loop()
 {
-  Serial.print("Temperature is ");
-  Serial.println(sensor->getTemperature());
-  delay(3000);
+  delay(500);
 }
