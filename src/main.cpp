@@ -5,14 +5,16 @@
 #include "ConnectWifi.h"
 
 Sensor *sensor = new Sensor();
+FirebaseDB *firebaseDB = new FirebaseDB();
 
 void setup()
 {
   Serial.begin(9600);
-  connectWifi("CE-ESL","ceeslonly");
+  connectWifi("CE-ESL", "ceeslonly");
+  firebaseDB->connectFirebase();
 }
 
 void loop()
 {
-  delay(500);
+  firebaseDB->updateTemperature(12.45);
 }
