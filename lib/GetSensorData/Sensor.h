@@ -2,13 +2,12 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
-const int DHTPIN = D5;
 const int DHTTYPE = DHT11;
 
 class Sensor
 {
 public:
-    Sensor();
+    Sensor(uint32_t dht_pin);
     ~Sensor();
     
     void testSensor();

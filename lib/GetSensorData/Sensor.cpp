@@ -1,9 +1,9 @@
 #include "Sensor.h"
 
-Sensor::Sensor()
+Sensor::Sensor(uint32_t dht_pin)
 {
     //init sensor
-    dht = new DHT_Unified(DHTPIN, DHTTYPE);
+    dht = new DHT_Unified(dht_pin, DHTTYPE);
 
     dht->begin();
 
