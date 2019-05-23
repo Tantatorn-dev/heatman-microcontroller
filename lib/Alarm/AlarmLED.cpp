@@ -1,6 +1,7 @@
 #include "AlarmLED.h"
 
-AlarmLED::AlarmLED(uint32_t pin){
+AlarmLED::AlarmLED(int pin){
+    this->pin = pin;
     pinMode(pin,OUTPUT);
     digitalWrite(pin,HIGH);
 }
