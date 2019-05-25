@@ -7,7 +7,7 @@ const int DHTTYPE = DHT11;
 class Sensor
 {
 public:
-    Sensor(uint32_t dht_pin);
+    Sensor(int dht_pin);
     ~Sensor();
     
     void testSensor();

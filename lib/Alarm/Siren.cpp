@@ -1,6 +1,7 @@
 #include "Siren.h"
 
-Siren::Siren(uint32_t pin){
+Siren::Siren(int pin){
+    this->pin=pin;
     pinMode(pin,OUTPUT);
     digitalWrite(pin,HIGH);
 }

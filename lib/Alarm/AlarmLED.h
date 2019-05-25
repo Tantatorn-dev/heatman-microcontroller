@@ -2,8 +2,10 @@
 
 class AlarmLED{
     public:
-    AlarmLED(uint32_t pin);
+    AlarmLED(int pin);
     void on();
+    void off();
+    void handleEvent();
     private:
-    uint32_t pin;
+    int pin;
 };

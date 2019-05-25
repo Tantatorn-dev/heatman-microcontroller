@@ -2,8 +2,9 @@
 
 class Siren{
     public:
-    Siren(uint32_t pin);
+    Siren(int pin);
     void on();
+    void handleEvent();
     private:
     int pin;
 };
