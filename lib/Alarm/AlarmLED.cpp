@@ -9,3 +9,11 @@ AlarmLED::AlarmLED(int pin){
 void AlarmLED::on(){
     digitalWrite(pin,LOW);
 }
+
+void AlarmLED::off(){
+    digitalWrite(pin,HIGH);
+}
+
+void AlarmLED::handleEvent(){
+    
+}

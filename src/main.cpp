@@ -3,13 +3,18 @@
 #include "Thermistor.h"
 #include "Siren.h"
 #include "AlarmLED.h"
+#include "FirebaseDB.h"
 #include "ConnectWifi.h"
+#include "Display.h"
 
 Sensor *sensor_1;
 Sensor *sensor_2;
 
 AlarmLED *alarmLED;
 Siren *siren;
+Display *display;
+
+FirebaseDB *firebaseDB;
 
 void setup()
 {
@@ -18,16 +23,18 @@ void setup()
   sensor_1 = new Sensor(D3);
   sensor_2 = new Sensor(D4);
 
-  alarmLED = new AlarmLED(D1);
-  siren = new Siren(D2);
+  alarmLED = new AlarmLED(D5);
+  siren = new Siren(D6);
+
+  display= new Display();
+  display->start();
 
   connectWifi("CE-ESL", "ceeslonly");
+  firebaseDB->connectFirebase();
 }
 
 void loop()
 {
-  alarmLED->on();
-  siren->on();
-
-  delay(5000);
+  display->show(sensor_1->getTemperature(),sensor_1->getHumidity());
+  delay(1000);
 }
