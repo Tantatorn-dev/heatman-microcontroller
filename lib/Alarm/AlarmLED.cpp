@@ -14,6 +14,11 @@ void AlarmLED::off(){
     digitalWrite(pin,HIGH);
 }
 
-void AlarmLED::handleEvent(){
-    
+void AlarmLED::handleEvent(String status){
+    if(status == "ON"){
+        on();
+    }
+    else if(status=="OFF"){
+        off();
+    }
 }

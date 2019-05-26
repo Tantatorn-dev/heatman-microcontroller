@@ -5,7 +5,7 @@ class AlarmLED{
     AlarmLED(int pin);
     void on();
     void off();
-    void handleEvent();
+    void handleEvent(String);
     private:
     int pin;
 };
