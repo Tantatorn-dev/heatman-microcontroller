@@ -6,6 +6,7 @@
 #include "FirebaseDB.h"
 #include "ConnectWifi.h"
 #include "Display.h"
+#include "Fan.h"
 
 Sensor *sensor_1;
 Sensor *sensor_2;
@@ -13,6 +14,7 @@ Sensor *sensor_2;
 AlarmLED *alarmLED;
 Siren *siren;
 Display *display;
+Fan *fan;
 
 FirebaseDB *firebaseDB;
 
@@ -25,6 +27,7 @@ void setup()
 
   alarmLED = new AlarmLED(D5);
   siren = new Siren(D6);
+  fan = new Fan(D7);
 
   display= new Display();
   display->start();
@@ -35,6 +38,11 @@ void setup()
 
 void loop()
 {
-  display->show(sensor_1->getTemperature(),sensor_1->getHumidity());
+  display->show(sensor_1->getTemperature(),sensor_2->getHumidity());
+  firebaseDB->updateTemperature(sensor_1->getTemperature(),sensor_2->getTemperature());
+  firebaseDB->updateHumidity(sensor_1->getHumidity(),sensor_2->getHumidity());
+  alarmLED->handleEvent(firebaseDB->getAlarmLEDState());
+  siren->handleEvent(firebaseDB->getSirenState());
+  fan->handleEvent(firebaseDB->getFanState());
   delay(1000);
 }

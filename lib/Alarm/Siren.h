@@ -4,7 +4,9 @@ class Siren{
     public:
     Siren(int pin);
     void on();
-    void handleEvent();
+    void off();
+    void handleEvent(String);
     private:
     int pin;
+    unsigned long timer;
 };
