@@ -2,7 +2,7 @@
 
 Display::Display()
 {
-    lcd = new LiquidCrystal_I2C(0x27, 16, 2);
+    lcd = new LiquidCrystal_I2C(0x27, 20, 4);
 }
 
 void Display::start()

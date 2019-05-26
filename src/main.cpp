@@ -38,9 +38,11 @@ void setup()
 
 void loop()
 {
+  display->show(sensor_1->getTemperature(),sensor_2->getHumidity());
   firebaseDB->updateTemperature(sensor_1->getTemperature(),sensor_2->getTemperature());
   firebaseDB->updateHumidity(sensor_1->getHumidity(),sensor_2->getHumidity());
   alarmLED->handleEvent(firebaseDB->getAlarmLEDState());
+  siren->handleEvent(firebaseDB->getSirenState());
   fan->handleEvent(firebaseDB->getFanState());
-  delay(5000);
+  delay(1000);
 }
